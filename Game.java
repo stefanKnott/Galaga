@@ -34,7 +34,7 @@ public class Game
 		npcs.add(npc3);
 		while(true) //Game loop
 		{	
-			StdDraw.clear();
+			StdDraw.clear(StdDraw.CYAN);
 			user.draw();
 			StdDraw.text(25, 25, "Lives: " + userLives);
 			StdDraw.text(25, 425, "Score: " + userScore);
