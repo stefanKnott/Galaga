@@ -13,6 +13,8 @@ public class Type2 extends Npc
 	{
 		super();
 		this.setYLoc(this.getYLoc() + 85);
+		this.setRecW(8);
+		this.setRecH(10);
 	}
 	
 	/**Method to draw Type2 Npc

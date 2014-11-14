@@ -12,6 +12,8 @@ public class Type1 extends Npc
 	Type1()
 	{
 		super();
+		this.setRecW(15);
+		this.setRecH(3);
 	}
 	
 	/**Method to draw Type1 Npc

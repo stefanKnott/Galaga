@@ -14,6 +14,8 @@ public class Type3 extends Npc
 	{
 		super();
 		this.setXLoc(this.getXLoc() + 45);
+		this.setRecW(20);
+		this.setRecH(15);
 	}
 	
 	/**Method to draw Type3 Npc
