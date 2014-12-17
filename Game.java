@@ -23,24 +23,33 @@ public class Game
 	{	
 		int userLives = 5;
 		int userScore = 0;
+
+		//Setup canvas
 		StdDraw.setCanvasSize(500, 500);
 		StdDraw.setXscale(0, 500);
 		StdDraw.setYscale(0, 500);
+
+		//Adds NPCs
 		Type1 npc1 = new Type1();
 		npcs.add(npc1);
 		Type2 npc2 = new Type2();
 		npcs.add(npc2);
 		Type3 npc3 = new Type3();
 		npcs.add(npc3);
-		while(true) //Game loop
+
+		//Game loop
+		while(true)
 		{	
 			StdDraw.clear(StdDraw.CYAN);
+			
 			user.draw();
 			StdDraw.text(25, 25, "Lives: " + userLives);
 			StdDraw.text(25, 425, "Score: " + userScore);
+			
+			//Act upon NPC array list
 			for(int i = 0; i < npcs.size(); i++)
 			{
-				npcs.get(i).move();  //Initialize NPC function
+				npcs.get(i).move();
 				npcs.get(i).draw();
 				npcs.get(i).setShootCounter(npcs.get(i).getShootCounter() + 1);
 				if(npcs.get(i).getShootCounter() == 100 || 
@@ -50,14 +59,15 @@ public class Game
 					npcs.get(i).setShootCounter(0);
 				}
 			}
+
+			//Act upon missile array list
 			for(int j = 0; j < missiles.size(); j++)
 			{
-				StdDraw.rectangle(missiles.get(j).getXLoc(), 
-									missiles.get(j).getYLoc(), 
-									missiles.get(j).getMissW(), missiles.get(j).getMissH());
+				StdDraw.rectangle(missiles.get(j).getXLoc(), missiles.get(j).getYLoc(), missiles.get(j).getMissW(), missiles.get(j).getMissH());
 				missiles.get(j).move();
-				if(user.intersect(missiles.get(j)) && //Check intersection
-						missiles.get(j).getYv() != 1) //NPC missile
+				
+				//Check for collision of NPC missile to User
+				if(user.intersect(missiles.get(j)) && missiles.get(j).getYv() != 1)
 				{
 					userLives--;
 					missiles.remove(missiles.get(j));
@@ -73,14 +83,17 @@ public class Game
 					missiles.remove(missiles.get(j));
 				}
 			}
+
+			//Handle User's missles
 			if(missiles.size() != 0)
-			{   int i, k;
+			{   
+				int i, k;
 				for(i = 0; i < npcs.size(); i++)
 				{
 					for(k = 0; k < missiles.size(); k++)
 					{
-						if(npcs.get(i).intersect(missiles.get(k)) && //Check intersection
-								missiles.get(k).getYv() >= 0) //User missile
+						//Check for collision of User missile to a NPC
+						if(npcs.get(i).intersect(missiles.get(k)) && missiles.get(k).getYv() >= 0)
 						{
 							userScore += 50;
 							npcs.remove(npcs.get(i));
@@ -94,8 +107,10 @@ public class Game
 					}
 				}
 			}
+
 			userControl(); //Pass control to user
 			userShootCounter++; //Firing cool-down
+
 			StdDraw.show(10);
 		}
 	}
@@ -103,7 +118,7 @@ public class Game
 	/**Method for User Control of the User Ship
 	 * 
 	 */
-	public static void userControl()
+	private static void userControl()
 	{
 		if(StdDraw.isKeyPressed(KeyEvent.VK_LEFT))
 		{
@@ -128,7 +143,7 @@ public class Game
 	 * @param a Desired Y Velocity for fired missile, this is
 	 * 			 used to distinguish between user/npc missiles
 	 */
-	public static void addMissile(Ship b, int a)
+	private static void addMissile(Ship b, int a)
 	{
 		Missile v = new Missile();
 		v.setXLoc(b.getXLoc());
@@ -137,7 +152,7 @@ public class Game
 		missiles.add(v);
 	}
 	
-	public static void endGame(String s)
+	private static void endGame(String s)
 	{
 		while(true)
 		{
