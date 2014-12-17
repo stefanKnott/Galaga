@@ -6,8 +6,8 @@ This class is used to create a missile
 */
 public class Missile extends MovingObject
 {	
-	public int recH; 
-	public int recW; 
+	private int recH; 
+	private int recW; 
 	
 	/**Constructor for generic missile
 	 * 

@@ -7,10 +7,10 @@ Serves as parent class for Npc, User, and Missile
 */
 public class MovingObject 
 {		
-	public double xV;
-	public double yV;
-	public double xLoc;
-	public double yLoc;
+	private double xV;
+	private double yV;
+	private double xLoc;
+	private double yLoc;
 	
 	/**Constructs generic MovingObject
 	 * 

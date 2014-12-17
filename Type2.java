@@ -5,7 +5,7 @@ This class is used to create a NPC Ship of Type 2
 */
 public class Type2 extends Npc
 {
-	public int shootCounter = 70;
+	private int shootCounter = 70;
 	/**Constructor for generic Type 2
 	 * 
 	 */

@@ -5,8 +5,8 @@ This class is used to create a Ship
 */
 public class Ship extends MovingObject
 {
-	public double recH;
-	public double recW;
+	private double recH;
+	private double recW;
 	
 	/**Constructor for basic ship
 	 * 
