@@ -1,4 +1,3 @@
-
 /**
 This class is used to create any MovingObject in the game.
 Serves as parent class for Npc, User, and Missile
@@ -7,10 +6,10 @@ Serves as parent class for Npc, User, and Missile
 */
 public class MovingObject 
 {		
-	private double xV;
-	private double yV;
-	private double xLoc;
-	private double yLoc;
+	public double xV;
+	public double yV;
+	protected double xLoc;
+	protected double yLoc;
 	
 	/**Constructs generic MovingObject
 	 * 

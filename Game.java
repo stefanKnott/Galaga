@@ -166,7 +166,8 @@ public class Game
 		StdDraw.setCanvasSize(500, 500);
 		StdDraw.setXscale(0, 500);
 		StdDraw.setYscale(0, 500);
-		
+			
+
 		//Add NPCs
 		Type1 npc1 = new Type1();
 		npcs.add(npc1);
@@ -177,7 +178,6 @@ public class Game
 
 		while(true)
 		{
-
 			StdDraw.clear(StdDraw.CYAN);	
 			StdDraw.text(25, 25, "Lives: " + userLives);
 			StdDraw.text(25, 425, "Score: " + userScore);

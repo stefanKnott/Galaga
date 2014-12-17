@@ -5,8 +5,8 @@ This class is used to create a Ship
 */
 public class Ship extends MovingObject
 {
-	private double recH;
-	private double recW;
+	protected double recH;
+	protected double recW;
 	
 	/**Constructor for basic ship
 	 * 
@@ -22,7 +22,7 @@ public class Ship extends MovingObject
 	 * 
 	 * @return recW
 	 */
-	public double getRecW()
+	protected double getRecW()
 	{
 		return recW;
 	}
@@ -31,7 +31,7 @@ public class Ship extends MovingObject
 	 * 
 	 * @return recH
 	 */
-	public double getRecH()
+	protected double getRecH()
 	{
 		return recH;
 	}
@@ -53,23 +53,4 @@ public class Ship extends MovingObject
 	{
 		recH = b;
 	}
-	
-	/**Boolean method used to determine if passed missile is 
-	 * in intersection with this.Ship
-	 * @param m passed missile to check intersection with
-	 * @return true if intersecting, false otherwise
-	 */
-/*	public boolean intersect(Missile m)
-	{       
-		if(((m.getYLoc()-m.getMissH()/2) <= (this.getYLoc() + this.getRecH()/2))  && 
-				(m.getXLoc() + m.getMissW()/2 >= this.getXLoc() - this.getRecW()/2) &&  	
-				(m.getXLoc() - m.getMissW()/2 <= this.getXLoc() + this.getRecW()/2))
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-	}*/
 }
